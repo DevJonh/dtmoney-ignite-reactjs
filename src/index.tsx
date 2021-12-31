@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { createServer, Model } from "miragejs";
 import { App } from "./App";
 import { GlobalStyle } from "./styles/global";
+import { TransactionProvider } from "./hooks/useTransactions";
 
 createServer({
   models: {
@@ -43,9 +44,9 @@ createServer({
 });
 
 ReactDOM.render(
-  <React.StrictMode>
+  <TransactionProvider>
     <GlobalStyle />
     <App />
-  </React.StrictMode>,
+  </TransactionProvider>,
   document.getElementById("root")
 );
